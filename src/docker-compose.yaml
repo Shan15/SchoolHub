@@ -1,18 +1,19 @@
 services:
   database:
-    build: ./SchoolHub.DB
+    build: ./SchoolHub.DB/
     ports:
       - 3306:3306
     environment:
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=12345678
-      - MYSQL_ROOT_PASSWORD=root
-
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: default_schema
     volumes:
+      - ./src/db/db.sql:/docker-entrypoint-initdb.d/1.sql
       - schoolhub-db:/var/lib/mysql
 
   backend:
-    build: ./SchoolHub.API
+    build: ./SchoolHub.API/SchoolHub.API
     ports:
       - 80:80
     links:
