@@ -1,0 +1,23 @@
+services:
+  database:
+    build: ./SchoolHub.DB
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=12345678
+      - MYSQL_ROOT_PASSWORD=root
+
+    volumes:
+      - schoolhub-db:/var/lib/mysql
+
+  backend:
+    build: ./SchoolHub.API
+    ports:
+      - 80:80
+    links:
+      - "database:db"
+    
+  frontend:
+    build: ./schoolHub.app
+    ports:
+      - 5000:5000
+    
