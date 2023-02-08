@@ -1,6 +1,8 @@
 services:
   database:
     build: ./SchoolHub.DB
+    ports:
+      - 3306:3306
     environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=12345678
