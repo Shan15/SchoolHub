@@ -1,11 +1,13 @@
-﻿namespace SchoolHub.API.Appointments
+﻿using System.Threading.Tasks;
+
+namespace SchoolHub.API.Appointments
 {
     public interface IAppointmentRepository
     {
-        public Task<IEnumerable<AppointmentModel>> GetAll(string userId);
+        public Task<IEnumerable<AppointmentModel>> GetAll();
         public Task<AppointmentModel> GetById(string id);
-        public void Create(AppointmentModel appointment);
-        public Task<AppointmentModel> Update(string id, AppointmentModel appointment);
-        public void Delete(string id);
+        public Task<AppointmentModel> Create(AppointmentRequest appointment);
+        public Task<AppointmentModel> Update(string id, AppointmentRequest appointment);
+        public Task<bool> Delete(string id);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using SchoolHub.API.Appointments;
-using SchoolHub.API.Schools;
 
 namespace SchoolHub.API.IoC;
 

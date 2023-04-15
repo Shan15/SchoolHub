@@ -9,7 +9,7 @@ namespace SchoolHub.API.Appointments
         public string Description { get; set; }
         public DateTime From { get; set;}
         public DateTime To { get; set;}
-        public UserModel User { get; set; }
+        public UserModel? User { get; set; }
 
     }
 }
